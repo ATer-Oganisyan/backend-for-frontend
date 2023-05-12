@@ -1,0 +1,40 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: order-service-entry-point
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: "arch.homework"
+    http:
+      paths:
+      - path: /auth
+        pathType: Prefix
+        backend:
+          service:
+            name: otus-session-server
+            port:
+              number: 8080
+      - path: /user
+        pathType: Prefix
+        backend:
+          service:
+            name: profile-service
+            port:
+              number: 8080
+      - path: /unauth
+        pathType: Prefix
+        backend:
+          service:
+            name: otus-session-server
+            port:
+              number: 8080
+      - path: /current-user
+        pathType: Prefix
+        backend:
+          service:
+            name: profile-service
+            port:
+              number: 8080

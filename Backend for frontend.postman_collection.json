@@ -1,0 +1,282 @@
+{
+	"info": {
+		"_postman_id": "4cb366a7-7d06-4a7c-81c9-46d884610ca8",
+		"name": "Backend for frontend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Try get current user without auth",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/current-user",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"current-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "login:root\npwd:test\nname:Admin\nage:27"
+				},
+				"url": {
+					"raw": "http://arch.homework/user/create",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"user",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "login:root\npwd:test"
+				},
+				"url": {
+					"raw": "http://arch.homework/auth",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Try get current user with auth",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token=fb469d7ef430b0baf0cab6c436e70375",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://arch.homework/current-user",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"current-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get by correct id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token=fb469d7ef430b0baf0cab6c436e70375",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://arch.homework/user/get?id=1",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"user",
+						"get"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get by incorrect id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token=fb469d7ef430b0baf0cab6c436e70375",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://arch.homework/user/get?id=111",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"user",
+						"get"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "111"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unauth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://arch.homework/unauth",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"unauth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create user 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "login:Admin\npwd:bla\nname:Jack\nage:20"
+				},
+				"url": {
+					"raw": "http://arch.homework/user/create",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"user",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth incorrect",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "login:Admin\npwd:test"
+				},
+				"url": {
+					"raw": "http://arch.homework/auth",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "login:root\npwd:test"
+				},
+				"url": {
+					"raw": "http://arch.homework/auth",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Try get current user with auth 2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token=a9e72ea05fed56581eefb29d1f6c0878",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://arch.homework/current-user",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"current-user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
